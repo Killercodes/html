@@ -3,7 +3,7 @@
     "version": "1",
     "name":"PWA App",
     "short_name": "PWA App",
-    "start_url":"./",
+    "start_url":"mobile.html",
     "icons": [{
         "src":"logo.png",
         "sizes": "512x512",
