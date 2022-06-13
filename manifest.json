@@ -7,8 +7,7 @@
     "icons": [{
         "src":"logo.png",
         "sizes": "512x512",
-        "type":"image/png",
-        "purpose":"maskable any"
+        "type":"image/png"
     }],
     "theme_color": "#000000",
     "background_color": "#FFFFFF",
