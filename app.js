@@ -1,4 +1,4 @@
-if('app-worker' in navigator){
+if('serviceWorker' in navigator){
       navigator.serviceWorker.register("/app-worker.js")
       .then(registeration => {
         console.log("SW registered");
