@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="appstyle.css"> 
+</head>
+
+<body>
+    <!-- Side Navigation -->
+    <div id="side-nav" class="sidenav">
+        <!--&#127968; home icon &times;-->
+        <a class="closebtn"><span onclick="closeNav()">&#9776; </span></a>
+        <a><span onclick="closeNav()"></span></a>
+        <a href="https://killercodes.github.io/js/docs/js-arrow-function" target="fpage">Menu Item 1</a>
+        <a href="#">Menu Item 2</a>
+        <a href="#">Menu Item 3</a>
+        <a href="#">About</a>
+
+    </div>
+
+    <!-- Top navigation -->
+    <div class="topnav">
+
+        <!-- Centered link -->
+        <div class="topnav-centered">
+            <a href="#home">App Name &#9889</a>
+        </div>
+
+        <!-- Left-aligned links (default) -->
+        <a><span onclick="openNav()">&#9776;</span> </a>
+
+
+        <!-- Right-aligned links -->
+        <div class="topnav-right">
+
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div id="main" style="padding-left:16px">
+        <h2>Responsive Top Navigation with Centered and Right-Aligned Links</h2>
+        <p>Resize the browser window to see the responsive effect.</p>
+        <a href="#"> link to it </a>
+        <!--iframe name="fpage"></iframe-->
+        <form>
+
+        
+        <input type="text" value="first name">
+        <input type="text" value="last name">
+        <input class="inline" type="button" value="Click">
+        <input class="inline" type="button" value="Click">
+        </form>
+        
+
+
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("side-nav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("side-nav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</body>
+
+</html>
