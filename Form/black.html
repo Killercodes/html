@@ -1,0 +1,247 @@
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        * {
+                font-size: 20px;
+                font-family: Arial;
+          }
+
+        body{
+            margin:0px;          
+        }
+
+    @media only screen and (max-width: 400px) {
+      body {
+        background-color: lightblue;
+      }
+        html{
+            display:flex;
+        }
+
+        div[type=form] {
+            width: 100%;
+        }
+
+    }
+
+    input,
+    option,
+    select,
+    label {
+
+      margin: 0px;
+
+    }
+
+
+    input[type=text],
+    select,
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit],
+    input[type=button],
+    input[type=reset] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    input[type=button]:hover {
+      background-color: #a04549;
+    }
+
+    input[type=reset]:hover {
+      background-color: #4549a0;
+    }
+
+    div[type=form] {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 0px;
+      margin: 0 auto;
+    }
+
+    textarea {
+      width: 99%;
+      resize: none;
+    }
+
+    fieldset {
+      border: 10px solid rgba(255, 0, 0, 0);
+      display: block;
+    }
+
+    .head {
+      background-color: #333;
+      border: 20px solid #333;
+      color: #eee;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .form {
+      border: 0px solid #e8e4e400;
+      ;
+    }
+
+    .toolbar {
+      float: right;
+    }
+
+
+    /*--sizing--*/
+    .w50 {
+      width: 50%;
+    }
+
+    .w100 {
+      width: 100%;
+    }
+            </style>
+        </head>
+        <body>
+            <div class="form" type="form" action="/action_page.php">
+                <div class="head">Using CSS to style an HTML Form</div>
+                <form action="/action_page.php">
+                    <fieldset>
+                        
+                        <label for="lname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option value="australia">Australia</option>
+                            <option value="canada">Canada</option>
+                            <option value="usa">USA</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <textarea name="message" rows="10" cols="30">The cat was playing in the garden.
+        </textarea>
+                    </fieldset>
+                    <fieldset>
+                        <label for="pwd">Password:</label>
+                        <br>
+                        <input type="password" id="pwd" name="pwd">
+                    </fieldset>
+                    <fieldset>
+                        <input type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">HTML</label>
+                        <br>
+                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <label for="css">CSS</label>
+                        <br>
+                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                        <label for="javascript">JavaScript</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>sadad</legend>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1">I have a bike</label>
+                        <br>
+                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                        <label for="vehicle2">I have a car</label>
+                        <br>
+                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                        <label for="vehicle3">I have a boat</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="favcolor">Select your favorite color:</label>
+                        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birthday">
+                    </fieldset>
+                    <fieldset>
+                        <label for="birthdaytime">Birthday (date and time):</label>
+                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                    </fieldset>
+                    <fieldset>
+                        <label for="email">Enter your email:</label>
+                        <input type="email" id="email" name="email">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="myfile">Select a file:</label>
+                        <input type="file" id="myfile" name="myfile">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <input type="hidden" id="custId" name="custId" value="3487">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="bdaymonth">Birthday (month and year):</label>
+                        <input type="month" id="bdaymonth" name="bdaymonth">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="quantity">Quantity (between 1 and 5):</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                    </fieldset>
+                    <fieldset>
+                        <legend></legend>
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="0" max="100" step="10" value="30">
+                    </fieldset>
+                    <fieldset>
+                        <label for="vol">Volume (between 0 and 50):</label>
+                        <input type="range" id="vol" name="vol" min="0" max="50">
+                    </fieldset>
+                    <fieldset>
+                        <label for="gsearch">Search Google:</label>
+                        <input type="search" id="gsearch" name="gsearch">
+                    </fieldset>
+                    <fieldset>
+                        <label for="phone">Enter your phone number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                    </fieldset>
+                    <fieldset>
+                        <label for="appt">Select a time:</label>
+                        <input type="time" id="appt" name="appt">
+                    </fieldset>
+                    <fieldset>
+                        <label for="homepage">Add your homepage:</label>
+                        <input type="url" id="homepage" name="homepage">
+                    </fieldset>
+                    <fieldset>
+                        <label for="week">Select a week:</label>
+                        <input type="week" id="week" name="week">
+                    </fieldset>
+                    <fieldset>
+                        <input type="submit" value="Submit">
+                        <input type="button" value="Button">
+                        <input type="reset">
+                    </fieldset>
+                </form>
+            </div>
+        
+    
+</body></html>
