@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Income Distribution</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        tr {
+            background-color: #EEE;
+            border: 1px solid rgb(10, 10, 10);
+        }
+
+        td{
+            align-items: center;
+            border: 1px solid #DDD;
+        }
+
+        label {
+            background-color: #EEE;
+        }
+
+        .ro {
+            border: 0px solid #EEE;
+            background-color: #EEE;
+        }
+
+        .red {
+            color: #AA0000;
+        }
+
+        .green {
+            color: #00AA00;
+        }
+
+        input[type=text],input[type=number] {
+            align-items: center;
+            background-color: rgb(250, 250, 250);
+            border: 0px solid #EEE;
+        }
+
+        /*
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 6px 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }*/
+
+        input[type=button],
+        input[type=submit],
+        input[type=reset] {
+            background-color: #044caa;
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            text-decoration: none;
+            margin: 4px 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Income Distribution</h2>
+    <table>
+        <form id="budgetForm">
+            <tr>
+                <td colspan=3>
+                    <label for="salary">Distribution Of Income: <input type="month">:</label>
+                    <input style="width: 250px;" type="number" id="salary" name="salary" onchange="calculate()"><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <div id="tneed"><b>Needs </b>(50%)<br>Budget<span id="nbase"></span><br>
+                    [<b>Rs.<input type="number" style="width:100px;background-color: #EEE;" id="needs" name="needs" readonly class="ro"></b>]</div>
+                </td>
+                <td align="center"><B>Wants</B> (30%)<br>Budget<span id="wbase"></span><br>
+                    [<b>Rs.<input type="number" style="width:100px;background-color: #EEE;" id="wants"name="wants" readonly class="ro"></b>]</td>
+                <td align="center"><b>Savings</b> (20%)<br>Budget<span id="sbase"></span><br>
+                    [<b>Rs.<input type="number" style="width:100px;background-color: #EEE;" id="savings" name="savings" readonly class="ro"></b>]</td>
+            </tr>
+
+            <!--<tr>
+                <td>
+                    <b><input type="number" id="needs" name="needs" readonly class="ro"></b>
+                </td>
+                <td>
+                    <b><input type="number" id="wants" name="wants" readonly class="ro"></b>
+                </td>
+                <td>
+                    <b><input type="number" id="savings" name="savings" readonly class="ro"></b>
+                </td>
+            </tr>-->
+            <tr>
+                <td class="ro" style="color: #AAA;">surplus</td>
+                <td><input class="ro" style="background-color: #EEE;" type="text" id="swants" name="swants" readonly></td>
+                <td><input class="ro" style="background-color: #EEE;" type="text" id="ssaving" name="ssaving" readonly></td>
+
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="needsFields"></div>
+                </td>
+                <td>
+                    <div id="wantsFields"></div>
+                </td>
+                <td>
+                    <div id="savingsFields"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><input id="bneed" type="button" onclick="addField('needs')" value="                Deduct Need                "></td>
+                <td><input id="bwant" type="button" onclick="addField('wants')" value="                Deduct Wants               "></td>
+                <td><input id="bsave" type="button" onclick="addField('savings')" value="                Deduct Saving               "></td>
+            </tr>
+            
+
+    </table>
+    </form>
+
+    <script>
+        var fields = {
+            needs: [],
+            wants: [],
+            savings: []
+        };
+
+        function addField(category) {
+            var div = document.createElement('div');
+            var label = document.createElement('input');
+            label.type = 'text';
+            var input = document.createElement('input');
+            input.type = 'number';
+            input.onchange = function () {
+                calculate();
+            };
+            div.appendChild(label);
+            div.appendChild(input);
+            document.getElementById(category + 'Fields').appendChild(div);
+            fields[category].push(input);
+        }
+
+        document.getElementById('budgetForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            calculate();
+        });
+
+        function calculate() {
+            debugger;
+            var salary = document.getElementById('salary').value;
+            var needs = salary * 0.5;
+            var wants = salary * 0.3;
+            var savings = salary * 0.2;
+
+            document.querySelector("#nbase").innerHTML = `[Rs. ${needs}]`;
+            document.querySelector("#wbase").innerHTML = `[Rs. ${wants}]`;
+            document.querySelector("#sbase").innerHTML = `[Rs. ${savings}]`;
+
+            fields.needs.forEach(function (field) {
+                needs -= field.value;
+            });
+
+            set("#swants", needs);
+            wants += needs;// * 0.6;
+            fields.wants.forEach(function (field) {
+                wants -= field.value;
+            });
+
+            set("#ssaving", wants);
+            savings += wants;// * 0.4;
+            fields.savings.forEach(function (field) {
+
+                savings -= field.value;
+            });
+
+            set('#needs', needs);
+            set('#wants', wants);
+            set('#savings', savings);
+            set("#bneed", `                Deduct from Need (${needs})               `);
+            set("#bwant", `                Deduct from Need (${wants})               `);
+            set("#bsave", `                Deduct from Need (${savings})               `);
+        }
+
+        function get(f) {
+            return document.querySelector(f).value;
+        }
+
+        function set(f, v) {
+            document.querySelector(f).value = v;
+            debugger;
+            if (v < 0)
+                document.querySelector(f).className = "ro red";
+
+            if (v > 0)
+                document.querySelector(f).className = "ro green";
+        }
+    </script>
+</body>
+
+</html>
