@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --high:#444;
+  --bg: #333;
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --random-color: black;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: var(--bg);; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+  
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: var(--high);
+  font-weight: bolder;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #eee;
+  width: 100%;
+  z-index: 1;
+ 
+  border:10px solid transperent !important;
+
+  
+}
+
+.subnav-content a {
+  border-radius: 14px;
+  float: left;
+  color: white;
+  text-decoration: none;
+  color:#fff;
+  border:10px solid #eee !important;
+  height:50px;
+  width:150px;
+
+}
+
+.subnav-content a:hover {
+  background-color: var(--high);
+  color: fff;
+}
+
+.subnav:hover .subnav-content {
+  display: flex;
+}
+
+[name=home] {
+  width: 150px;
+  background-color: var(--bg);
+
+  /*animation: changeColor 10s infinite;*/
+  font-weight: bolder;
+  
+}
+
+.arrow {
+  border: solid #eee;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+   transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+
+.success {background-color: #04AA6D;} /* Green */
+.success:hover {background-color: #46a049 !important;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */ 
+.danger:hover {background: #da190b;}
+
+@keyframes changeColor {
+  0%   {background: green;}
+  14%  {color: orange;}
+  28%  {color: yellow;}
+  42%  {color: green;}
+  57%  {color: blue;}
+  71%  {color: indigo;}
+  85%  {color: violet;}
+  100% {color: red;}
+}
+
+input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+}
+
+.footer {
+  overflow: hidden;
+  background-color: #444;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color:#eee;
+   float: left;
+  display: block;
+  color: #f2f2f2;
+
+  padding: 4px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#home" name="home">Application</a>
+
+  <div class="subnav">
+    <button class="subnavbtn">Services <b class="arrow"></b></button>
+    <div class="subnav-content" style="overflow-y: scroll;">
+      <a href="#bring" class="success">Bring</a>
+      <a href="#deliver" class="info">Deliver</a>
+      <a href="#package" class="warning">Package</a>
+      <a href="#express" class="danger">Express</a>
+      <a href="#bring" class="success">Bring</a>
+      <a href="#deliver" class="info">Deliver</a>
+      <a href="#package" class="warning">Package</a>
+      <a href="#express" class="danger">Express</a>
+      <a href="#bring" class="success">Bring</a>
+      <a href="#deliver" class="info">Deliver</a>
+      <a href="#package" class="warning">Package</a>
+      <a href="#express" class="danger">Express</a>
+    </div>
+  </div> 
+  <div class="subnav">
+    <button class="subnavbtn">Partners <b class="arrow"></b></button>
+    <div class="subnav-content">
+      <a href="#link1" class="info">Link 1</a>
+      <a href="#link2" class="warning">Link 2</a>
+      <a href="#link3" class="danger">Link 3</a>
+      <a href="#link4" class="success">Link 4</a>
+    </div>
+  </div>
+    <div class="subnav">
+    <button class="subnavbtn">About <b class="arrow"></b></button>
+    <div class="subnav-content">
+      <a href="#company" class="warning">Company</a>
+      <a href="#team" class="danger">Team</a>
+      <a href="#careers" class="success">Careers</a>
+    </div>
+  </div> 
+  <a href="#contact">Contact</a>
+  <input type="text" placeholder="Search..">
+</div>
+
+<script>
+  var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.documentElement.style.setProperty('--random-color', randomColor);
+</script>
+
+<div style="padding:0 16px">
+  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
+  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
+</div>
+<div class="footer">
+	adasdasdasdas asdasdsa
+</div>
+</body>
+</html>
